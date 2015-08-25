@@ -1,0 +1,72 @@
+<?php 
+     $data              =$this->data;
+
+     $user_name         =$this->formText('user_name',$data['0']['user_name'],array('class'=>'txttextbox'));
+     $password      	=$this->formPassword('password',"zxczxc",array('class'=>'txttextbox'));
+     $email             =$this->formText('email',$data['0']['email'],array('class'=>'txttextbox'));
+     $first_name        =$this->formText('first_name',$data['0']['first_name'],array('class'=>'txttextbox'));
+     $last_name         =$this->formText('last_name',$data['0']['last_name'],array('class'=>'txttextbox'));
+     $birthday          =$this->formText('popup_container',$data['0']['birthday'],array('class'=>'txttextbox'));
+     $register_date     =$this->formText('register_date',$data['0']['register_date'],array('class'=>'txttextbox'));
+     $published 	=$this->formRadio('published',1,null,array('0'=>'No','1'=>'Yes'), ' ');
+     
+     
+    
+?>
+<script type="text/javascript">
+$(document).ready(function(){
+      $("#password").val("");
+});
+</script>
+<script type="text/javascript">
+/*You can also place this code in a separate file and link to it like epoch_classes.js*/
+	var bas_cal,dp_cal,ms_cal,calendar1;      
+    window.onload = function () {
+	
+	dp_cal  = new Epoch('epoch_popup','popup',document.getElementById('popup_container'));
+	calendar1 = new Epoch('epoch_popup','popup',document.getElementById('calendar1_container'));
+	
+};
+</script>
+<div>
+<form name="appForm" method="post" action="" id="appForm">
+<?php echo $this->render('/user/include/toolbar.php');?>
+  <table class="tbl_content" width="99%" cellspacing="0" cellpadding="4" border="0">
+     <tr>
+        <td class="left_lable">User Name</td>
+        <td class="right_lable"><?php echo $user_name;?></td>
+     </tr>
+     <tr>
+        <td class="left_lable">Password</td>
+        <td class="right_lable">
+            <input type="password" name="password" id="password" value="" class="txttextbox">
+            (Nhập mật khẩu mới nếu cần)
+         </td>
+     </tr>
+     <tr>
+        <td class="left_lable">Email</td>
+        <td class="right_lable"><?php echo $email;?></td>
+     </tr>
+     <tr>
+        <td class="left_lable">First Name</td>
+        <td class="right_lable"><?php echo $first_name;?></td>
+     </tr>
+     <tr>
+        <td class="left_lable">Last Name</td>
+        <td class="right_lable"><?php echo $last_name;?></td>
+     </tr>
+     <tr>
+        <td class="left_lable">Birthday</td>
+        <td class="right_lable"><?php echo $birthday ;?></td>
+     </tr>
+     <tr>
+        <td class="left_lable">Published</td>
+        <td class="right_lable"><?php echo $published ;?></td>
+     </tr>
+    
+  </table>
+  <input type="hidden" name="key" id="id" value="edit">
+ <input type="hidden" name="pass" id="id" value="<?php echo $data['0']['password']; ?>">
+
+</form>
+</div>

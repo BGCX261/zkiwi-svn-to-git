@@ -1,0 +1,39 @@
+@CHARSET "ISO-8859-1";
+.booking_title{ background:#D7E9FD; margin-top: 0px; padding-top: 5px; padding-bottom: 5px; color:#4B8DF8;}
+.booking_table{
+	margin-top: -15px;
+	border: 2px solid #BAAF72;
+}
+.booking_table tbody{ margin-left: 0px;}
+.booking_td_left{
+	padding-top: 10px;
+	
+	padding-bottom: 10px;
+	border-bottom-width: 1px;
+	border-bottom-style: solid;
+	border-bottom-color: #BAAF72;
+	padding-left:3px;
+	width:400px;
+	font-size: 12px;
+	font-weight: bold;
+}
+.booking_td_left_footer{padding-top: 10px;padding-bottom: 10px;padding-left:3px;font-size: 12px;
+	font-weight: bold;}
+.booking_td_rigth{
+	border-bottom-width: 1px;
+	border-left-width: 1px;
+	border-bottom-style: solid;
+	border-left-style: solid;
+	border-bottom-color: #BAAF72;
+	border-left-color: #BAAF72;
+	padding-left:5px;
+}
+.booking_td_rigth_footer{
+	padding-top: 5px;
+	padding-bottom: 5px;
+	padding-left:3px;
+	border-left-width: 1px;
+	border-left-style: solid;
+	border-left-color: #BAAF72;
+	padding-left:5px;	
+}

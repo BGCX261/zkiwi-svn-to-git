@@ -1,0 +1,16 @@
+.custommer_infomation td{padding:10px; font-family: Arial, Helvetica, sans-serif; border-bottom:2px dotted #D7D7D7;}
+.custommer_infomation, .custommer_tour_booking, .custommer_tour_cruise, .custommer_hotel{position:relative;}
+.custommer_tour_booking table, .custommer_tour_cruise table, .custommer_hotel table{border:1px solid #D7D7D7; border-bottom:none;}
+.custommer_tour_booking table, .custommer_tour_cruise table + table, .custommer_hotel table + table{border:1px solid #D7D7D7; border-bottom:none; border-top:none !important;}
+.custommer_tour_booking table td, .custommer_tour_cruise table td, .custommer_hotel table td{border-bottom:1px solid #D7D7D7; padding:10px;}
+.nametd{background:#F6F6F6; text-align:left;}
+.statd{background:#F0F0F0; width:125px; text-align:center;}
+.actd{background:#E2E2E2; width:125px; text-align:center;}
+.nametd1{background:#F1F1F1; text-align:left; font-weight:bold;}
+.statd1{background:#DFDFDF; width:125px; text-align:center; font-weight:bold;}
+.actd1{background:#D4D4D4; width:125px; text-align:center; font-weight:bold;}
+.nametd2{background:#FCFCFC; text-align:left;}
+.statd2{background:#F7F7F7; width:125px; text-align:center;}
+.actd2{background:#EFEFEF; width:125px; text-align:center;}
+.actd a, .actd2 a{color:red; text-decoration:underline;}
+#conti{border:none; background:#1E86A8; color:#fff; font-size:14px; padding:5px 10px; cursor:pointer;}

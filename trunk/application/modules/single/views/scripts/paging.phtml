@@ -1,0 +1,48 @@
+<div class="pageination_left">
+        <!-- First page link -->
+        <?php if (isset($this->previous)): ?>
+              <a href="<?php echo  $this->url(array('page' => $this->first)); ?>">Start</a>
+        <?php else: ?>
+                <span class="no-link">Start</span>
+        <?php endif; ?> 
+ 
+        <!-- Previous page link -->
+   
+        <?php if (isset($this->previous)): ?>
+              <a href="<?php echo  $this->url(array('page' => $this->previous)); ?>">Previous</a>
+        <?php else: ?>
+            <span class="no-link">Previous</span>
+        <?php endif; ?>
+        
+ </div> 
+ <div class="pageination_center">        
+        <!-- Numbered page links -->
+        <?php foreach ($this->pagesInRange as $page): ?>
+            <?php if ($page != $this->current): ?>
+                <a href="<?php echo  $this->url(array('page' => $page)); ?>"><?php echo $page; ?></a>
+            <?php else: ?>
+               <span class="curent"><?php echo  $page; ?></span>
+            <?php endif; ?>
+        <?php endforeach; ?>
+        
+  </div>
+  <div class="pageination_right">      
+      
+        <!-- Next page link -->
+        <?php if (isset($this->next)): ?>
+               <a href="<?php echo $this->url(array('page' => $this->next)); ?>">Next</a>
+        <?php else: ?>
+             <span class="no-link">Next</span>
+        <?php endif; ?>
+        
+        
+        
+        
+        <!-- Last page link -->
+        <?php if (isset($this->next)): ?>
+              <a href="<?php echo $this->url(array('page' => $this->last)); ?>">End</a>
+        <?php else: ?>
+            <span class="no-link">End</span>
+        <?php endif; ?>
+         <span class="ale">(Page <?php echo  $this->current; ?> of <?php echo  $this->last; ?>)</span>
+</div>

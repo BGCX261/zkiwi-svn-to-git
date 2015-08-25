@@ -1,0 +1,82 @@
+<?php 
+     $title         =$this->formText('title',$this->data['0']['title'],array('class'=>'txttextbox'));
+     $address       =$this->formText('address',$this->data['0']['address'],array('class'=>'txttextbox'));
+     $telephone     =$this->formText('telephone',$this->data['0']['title'],array('class'=>'txttextbox'));
+     $email         =$this->formText('email',$this->data['0']['email'],array('class'=>'txttextbox'));
+     $website       =$this->formText('website',$this->data['0']['website'],array('class'=>'txttextbox'));
+     
+     
+     $user_mail     =$this->formText('user_mail',$this->data['0']['user_mail'],array('class'=>'txttextbox'));
+     $port          =$this->formText('port',$this->data['0']['port'],array('class'=>'txttextbox'));
+     $password      =$this->formPassword('password',$this->data['0']['password'],array('class'=>'txttextbox'));
+     $host_mail     =$this->formText('smtp',$this->data['0']['smtp'],array('class'=>'txttextbox'));
+     
+?>
+
+<div>
+<form name="appForm" method="post" action="" id="appForm">
+<?php echo $this->render('/config/include/toolbar.php');?>
+ <fieldset>
+   <legend>Infomation Global</legend>
+  <table class="tbl_content" width="99%" cellspacing="0" cellpadding="4" border="0">
+     <tr>
+        <td class="left_lable">Tittle</td>
+        <td class="right_lable"><?php echo $title;?></td>
+     </tr>
+     <tr>
+        <td class="left_lable">Address</td>
+        <td class="right_lable">
+            <?php echo $address; ?>
+         </td>
+      <tr>
+        <td class="left_lable">Telephone</td>
+        <td class="right_lable">
+          <?php echo $telephone; ?>
+       </td>
+     </tr>
+     <tr>
+        <td class="left_lable">Website</td>
+        <td class="right_lable">
+          <?php echo $website; ?>
+       </td>
+     </tr>
+    
+   
+  </table>
+  </fieldset>
+  
+  <fieldset>
+    <legend>Mail Infomation</legend>
+     <table class="tbl_content" width="99%" cellspacing="0" cellpadding="4" border="0">
+      <tr>
+        <td class="left_lable">Email</td>
+        <td class="right_lable">
+          <?php echo $email; ?>
+       </td>
+     </tr>
+      <tr>
+        <td class="left_lable">User</td>
+        <td class="right_lable">
+          <?php echo $user_mail; ?>
+       </td>
+     </tr>
+      <tr>
+        <td class="left_lable">Password</td>
+        <td class="right_lable">
+         <input class="txttextbox" type="password" value="<?php echo $this->data['0']['password']; ?>" name="password">
+       </td>
+     </tr>
+      <tr>
+        <td class="left_lable">Smtp</td>
+        <td class="right_lable">
+          <?php echo $host_mail; ?>
+       </td>
+     </tr>
+    
+  </table>
+  
+  </fieldset>
+  <input type="hidden" name="key" id="id" value="add">
+
+</form>
+</div>

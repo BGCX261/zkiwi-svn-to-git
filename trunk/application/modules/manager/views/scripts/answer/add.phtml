@@ -1,0 +1,103 @@
+<?php 
+     $title         =$this->formText('title',$this->arrParam['title'],array('class'=>'txttextbox'));
+     $published 	=$this->formRadio('published','0',null,array('0'=>'No','1'=>'Yes'), ' ');
+     $score         =$this->formText('score',$this->arrParam['score'],array('class'=>'txttextbox'));
+     $order         =$this->formText('order',$this->arrParam['order'],array('class'=>'txttextbox'));
+     $images		=$this->formText('images',$this->arrParam['images'],array('class'=>'txttextbox'));
+     
+     $tags          =$this->tags;
+     $tags['0']     ='Select Tags';
+     ksort($tags);
+     $cbo_tags      =$this->formSelect('tags',$this->arrParam['tags'],array('class'=>'cbo_box'),$tags,' ');
+ 
+     $question          =$this->question;
+     $question['0']     ='Select Question';
+     ksort($question);
+     $cbo_question      =$this->formSelect('question',$this->arrParam['question'],array('class'=>'cbo_box'),$question,' ');
+  
+?>
+<div>
+<form name="appForm" method="post" action="" id="appForm">
+<?php echo $this->render('/question/include/toolbar.php');?>
+<?php 
+     if (empty($this->error)==false)
+         {
+           echo '<h2 class="error">'.$this->error.'</h2>'	;
+         }
+  ?>
+  <table class="tbl_content" width="99%" cellspacing="0" cellpadding="4" border="0">
+  
+     <tr>
+        <td class="left_lable">Title</td>
+        <td class="right_lable"><?php echo $title;?></td>
+     </tr>
+      <tr>
+       <td class="left_lable">Choose Tags</td>
+        <td class="right_lable"><?php echo $cbo_tags; ?></td>
+     </tr>
+      <tr>
+       <td class="left_lable">Choose Question</td>
+        <td class="right_lable"><?php echo $cbo_question; ?></td>
+     </tr>
+      <tr>
+        <td class="left_lable">Images</td>
+        <td class="right_lable">
+         <?php echo $images; ?>
+         <input onclick="BrowseServer('Images:/','images')" type="button" name="btnchonfile" id="btnchonfile" value="Browse" />
+       </td>
+     </tr>
+     
+      <tr>
+        <td class="left_lable">Content</td>
+        <td class="right_lable">
+            <textarea name=content id=content class=txttextbox /></textarea>
+			<script type="text/javascript">
+             var editor = CKEDITOR.replace( 'fulltext',{
+	            uiColor : '#9AB8F3',
+	            language:'vi',
+	            skin:'v2',
+	            width:'960px',
+	            height:'300px',
+	            filebrowserImageBrowseUrl : '<?php echo JURI."ckfinder/ckfinder.html?Type=Images";?>',
+	            filebrowserFlashBrowseUrl : '<?php echo JURI."ckfinder/ckfinder.html?Type=Flash";?>',
+				filebrowserImageUploadUrl : 'ckfinder/core/connector/php/connector.php?command=QuickUpload&type=Images',
+				filebrowserFlashUploadUrl : 'ckfinder/core/connector/php/connector.php?command=QuickUpload&type=Flash',
+				 	
+	            toolbar:[
+	            ['Source','-','Save','NewPage','Preview','-','Templates'],
+	            ['Cut','Copy','Paste','PasteText','PasteFromWord','-','Print'],
+	            ['Undo','Redo','-','Find','Replace','-','SelectAll','RemoveFormat'],
+	            ['Form', 'Checkbox', 'Radio', 'TextField', 'Textarea', 'Select', 'Button', 'ImageButton', 'HiddenField'],
+	            ['Bold','Italic','Underline','Strike','-','Subscript','Superscript'],
+	            ['NumberedList','BulletedList','-','Outdent','Indent','Blockquote','CreateDiv'],
+	            ['JustifyLeft','JustifyCenter','JustifyRight','JustifyBlock'],
+	            ['Link','Unlink','Anchor'],
+	            ['Image','Flash','Table','HorizontalRule','Smiley','SpecialChar','PageBreak'],
+	            ['Styles','Format','Font','FontSize'],
+	            ['TextColor','BGColor'],
+	            ['Maximize', 'ShowBlocks','-','About']
+	            ]
+	        });		
+	        </script>
+       </td>
+       
+     </tr>
+     <tr>
+        <td class="left_lable">Score</td>
+        <td class="right_lable"><?php echo $score;?></td>
+     </tr>
+     <tr>
+        <td class="left_lable">Published</td>
+        <td class="right_lable"><?php echo $published;?></td>
+     </tr>  
+     <tr>
+        <td class="left_lable">Order</td>
+        <td class="right_lable"><?php echo $order; ?></td>
+      </tr>
+      
+    
+  </table>
+  <input type="hidden" name="key" id="id" value="add">
+
+</form>
+</div>

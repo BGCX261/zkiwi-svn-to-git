@@ -1,0 +1,70 @@
+<?php 
+     $user_name         =$this->formText('user_name',NULL,array('class'=>'txttextbox'));
+     $password      	=$this->formPassword('password',null,array('class'=>'txttextbox'));
+     $email             =$this->formText('email',NULL,array('class'=>'txttextbox'));
+     $first_name        =$this->formText('first_name',NULL,array('class'=>'txttextbox'));
+     $last_name         =$this->formText('last_name',NULL,array('class'=>'txttextbox'));
+     $birthday          =$this->formText('popup_container',NULL,array('class'=>'txttextbox'));
+     $register_date     =$this->formText('register_date',NULL,array('class'=>'txttextbox'));
+     $published 	    =$this->formRadio('published',1,null,array('0'=>'No','1'=>'Yes'), ' ');
+     
+     $data              = $this->data;
+   
+?>
+<script type="text/javascript">
+/*You can also place this code in a separate file and link to it like epoch_classes.js*/
+	var bas_cal,dp_cal,ms_cal,calendar1;      
+    window.onload = function () {
+	
+	dp_cal  = new Epoch('epoch_popup','popup',document.getElementById('popup_container'));
+	calendar1 = new Epoch('epoch_popup','popup',document.getElementById('calendar1_container'));
+	
+};
+</script>
+<div>
+<form name="appForm" method="post" action="" id="appForm">
+<?php echo $this->render('/user/include/toolbar.php');?>
+<?php 
+     if (empty($this->error)==false)
+         {
+           echo '<h2 class="error">'.$this->error.'</h2>'	;
+         }
+  ?>
+  <table class="tbl_content" width="99%" cellspacing="0" cellpadding="4" border="0">
+     <tr>
+        <td class="left_lable">User</td>
+        <td class="right_lable"><?php echo $user_name;?></td>
+     </tr>
+     <tr>
+        <td class="left_lable">Password</td>
+        <td class="right_lable"><?php echo $password;?></td>
+     </tr>
+     <tr>
+        <td class="left_lable">Email</td>
+        <td class="right_lable"><?php echo $email;?></td>
+     </tr>
+     <tr>
+        <td class="left_lable">Tên</td>
+        <td class="right_lable"><?php echo $first_name;?></td>
+     </tr>
+     <tr>
+        <td class="left_lable">Họ </td>
+        <td class="right_lable"><?php echo $last_name;?></td>
+     </tr>
+     <tr>
+        <td class="left_lable">Ngày sinh</td>
+        <td class="right_lable"><?php echo $birthday ;?></td>
+     </tr>
+     <tr>
+        <td class="left_lable">Kích hoạt</td>
+        <td class="right_lable"><?php echo $published ;?></td>
+     </tr>
+    
+  </table>
+  
+ 
+		
+  <input type="hidden" name="key" id="id" value="add">
+
+</form>
+</div>

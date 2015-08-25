@@ -1,0 +1,6 @@
+#tbldn    { border:solid 3px #036; color:#036;  font-weight:bold }
+#tbldn th { background-color:#036; color:#6FC; padding:5px}
+#username, #password{ 	background-color:#FFFFFF color:#6FF; padding:3px;
+					border:solid 1px #990; width:280px;}
+#btnLog{ background-color:#036; color:#6FF; width:120px; 
+		  padding:3px; border:solid 1px #6FF}

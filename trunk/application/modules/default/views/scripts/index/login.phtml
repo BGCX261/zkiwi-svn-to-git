@@ -1,0 +1,45 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>Đăng Nhập</title>
+<style>
+#dangnhap {width:350px; background-color:#fff; padding:10px; text-align:center; border:1px solid #91C8FF;}
+#dangnhap .tieude { color:#000; font-size:20px; font-weight:bold; text-align:left}
+#dangnhap .left {color:#666}
+#dangnhap #user { padding-top:5px; text-align:left; padding-left:20px; font-weight:bold}
+#dangnhap #pass { padding-top:10px; text-align:left; padding-left:20px; font-weight:bold}
+#dangnhap .input { width:250px}
+#dangnhap #ghinho { text-align:left;padding-left:20px; padding-top:10px}
+#dangnhap #dn{ padding-top:10px}
+#dangnhap #error { padding-top:5px; padding-bottom:5px; color:#F00}
+</style>
+</head>
+
+<body>
+<div align="center">
+<form action="<?php echo JURI.'/index'; ?>" method="post">
+<div id="dangnhap">
+
+<div class="tieude">Đăng Nhập</div>
+
+<hr color="#A2CAF2" />
+<div id="user">Username : <br />
+	<input name="username" type="text" class="input" id="username" value="" />
+</div>
+
+<div id="pass">Password : <br />
+	<input name="passwd" type="password" class="input" id="passwd" value="" />
+</div>
+<div id="ghinho">
+	 <input type="checkbox" name="ghinho" id="ghinho2" /> Ghi nhớ đăng nhập !
+</div>
+<div id="dn"> 
+	<input type="submit" name="btndn" id="btndn" value="login" />
+</div>
+<div id="error"><?php   echo $this->error; ?></div>
+</div>
+</form>
+</div>
+</body>
+</html>

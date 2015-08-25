@@ -1,0 +1,104 @@
+<?php 
+     $title         =$this->formText('title',$this->arrParam['title'],array('class'=>'txttextbox'));
+     $published 	=$this->formRadio('published','0',null,array('0'=>'No','1'=>'Yes'), ' ');
+     $score         =$this->formText('score',$this->arrParam['score'],array('class'=>'txttextbox'));
+     $order         =$this->formText('order',$this->arrParam['order'],array('class'=>'txttextbox'));
+     $images		=$this->formText('images',$this->arrParam['images'],array('class'=>'txttextbox'));
+ 
+   
+?>
+<div>
+<form name="appForm" method="post" action="" id="appForm">
+<?php echo $this->render('/question/include/toolbar.php');?>
+<?php 
+     if (empty($this->error)==false)
+         {
+           echo '<h2 class="error">'.$this->error.'</h2>'	;
+         }
+  ?>
+  <table class="tbl_content" width="99%" cellspacing="0" cellpadding="4" border="0">
+  
+     <tr>
+        <td class="left_lable">Title</td>
+        <td class="right_lable"><?php echo $title;?></td>
+     </tr>
+      <tr>
+       <td class="left_lable">Choose Tags</td>
+        <td class="right_lable">
+             <select multiple name="fromBox" id="fromBox">
+        	<?php foreach ($this->data as $slec){ ?>
+				<option value="<?php echo $slec['id']?>"><?php echo $slec['title'];?></option>
+			<?php }?>
+				
+			</select>
+			<select multiple name="toBox[]" id="toBox">
+				
+			</select>
+			<script type="text/javascript">
+				createMovableOptions("fromBox","toBox",550,200,'Chọn nhóm','Nhóm đã chọn');
+		</script>
+        
+        </td>
+     </tr>
+      <tr>
+        <td class="left_lable">Images</td>
+        <td class="right_lable">
+         <?php echo $images; ?>
+         <input onclick="BrowseServer('Images:/','images')" type="button" name="btnchonfile" id="btnchonfile" value="Browse" />
+       </td>
+     </tr>
+     
+      <tr>
+        <td class="left_lable">Content</td>
+        <td class="right_lable">
+            <textarea name=content id=content class=txttextbox /></textarea>
+			<script type="text/javascript">
+             var editor = CKEDITOR.replace( 'content',{
+	            uiColor : '#9AB8F3',
+	            language:'vi',
+	            skin:'v2',
+	            width:'98%',
+	            height:'300',
+	            filebrowserImageBrowseUrl : '<?php echo JURI."ckfinder/ckfinder.html?Type=Images";?>',
+	            filebrowserFlashBrowseUrl : '<?php echo JURI."ckfinder/ckfinder.html?Type=Flash";?>',
+				filebrowserImageUploadUrl : 'ckfinder/core/connector/php/connector.php?command=QuickUpload&type=Images',
+				filebrowserFlashUploadUrl : 'ckfinder/core/connector/php/connector.php?command=QuickUpload&type=Flash',
+				 	
+	            toolbar:[
+	            ['Source','-','Save','NewPage','Preview','-','Templates'],
+	            ['Cut','Copy','Paste','PasteText','PasteFromWord','-','Print'],
+	            ['Undo','Redo','-','Find','Replace','-','SelectAll','RemoveFormat'],
+	            ['Form', 'Checkbox', 'Radio', 'TextField', 'Textarea', 'Select', 'Button', 'ImageButton', 'HiddenField'],
+	            ['Bold','Italic','Underline','Strike','-','Subscript','Superscript'],
+	            ['NumberedList','BulletedList','-','Outdent','Indent','Blockquote','CreateDiv'],
+	            ['JustifyLeft','JustifyCenter','JustifyRight','JustifyBlock'],
+	            ['Link','Unlink','Anchor'],
+	            ['Image','Flash','Table','HorizontalRule','Smiley','SpecialChar','PageBreak'],
+	            ['Styles','Format','Font','FontSize'],
+	            ['TextColor','BGColor'],
+	            ['Maximize', 'ShowBlocks','-','About']
+	            ]
+	        });		
+	        </script>
+       </td>
+       
+     </tr>
+     <tr>
+        <td class="left_lable">Score</td>
+        <td class="right_lable"><?php echo $score;?></td>
+     </tr>
+     <tr>
+        <td class="left_lable">Published</td>
+        <td class="right_lable"><?php echo $published;?></td>
+     </tr>  
+     <tr>
+        <td class="left_lable">Order</td>
+        <td class="right_lable"><?php echo $order; ?></td>
+      </tr>
+      
+    
+  </table>
+  <input type="hidden" name="key" id="id" value="add">
+
+</form>
+</div>

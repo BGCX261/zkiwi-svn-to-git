@@ -1,0 +1,123 @@
+<form name="appForm" method="post" action="" id="appForm">
+     <?php echo $this->render('/user/include/toolbar.php');?>
+     <?php echo $this->render('/user/include/submenu.php');?>
+
+<!-- BEGIN: CONTENT -->
+ <div id="element-box">
+   <div class="t">
+     <div class="t">
+        <div class="t"></div>
+   </div>
+     </div>
+<div class="m">
+   <!-- BEGIN: ELEMENT BOX -->
+       <!-- Area 4: In du lieu lay tu database -->
+     <div id="subicon_left"><?php echo $this->searchButton($this->keyword); ?></div>
+     <div id="subicon_right">
+        <?php 
+        	 	$a['1']="Published";
+                $a['0']="Unpublished";
+                echo $this->stateButton($name='status',$default='-Select Sate-',$a);
+        ?>
+     </div>  
+           <table class="adminlist" width="100%">
+               <thead>
+                   <tr>
+                     <th width="40" ><input type="checkbox" name="checkall" id="checkall" onclick="checkedAll();"></th>
+                     <th width="180">User Name</th>
+                     <th width="100">First Name</th>
+                     <th width="100">Last Name</th>
+                     <th width="40">Satus</th>
+                     <th width="50">Controller</th>						
+                     <th width="30">ID</th>
+                   </tr>
+               </thead>
+               <?php 
+               
+				 if(count($this->paginator)>0){
+				    	$i=0;
+					  foreach ($this->paginator as $key => $val){
+						$id 		    = $val['id'];
+						$user_name	    = $val['user_name'];
+						$email          = $val['email'];
+						
+						
+						$first_name	    = $val['first_name'];
+						$last_name	    = $val['last_name'];
+						
+						
+						$create         =  $val['create'];					
+						$status     	= $val['status'];	 						
+												
+						$attribs = array('icon'=>'inactive.png',
+										 'iconDir' => "images/icon/");
+		
+						if($val['published']== 1)
+						{		
+							$attribs['icon'] = 'active.png';
+						}
+						$lnkStatus  = $this->url(array('action'=>'status','id'=> $id,'s'=>$val['published']));
+						$status 	= $this->cmsIcon('status',$lnkStatus,$attribs);
+						
+						$ordering 		= $this->formText('order[' . $val['id'] . ']',$val['order'],array('style'=>'width: 30px; text-align: center;'));
+
+						$lnkSate  = $this->url(array('action'=>'state','id'=> $val['id']));
+						$iconSate = $this->IconButton('Edit item',$lnkSate,array('icon'=>'edit.png'));
+																						
+						$lnkEdit  = $this->url(array('action'=>'edit','id'=> $val['id']));
+						$iconEdit = $this->IconButton('Edit item',$lnkEdit,array('icon'=>'edit.png'));
+												
+						$lnkDel  = $this->url(array('action'=>'delete','id'=> $val['id']));
+						$iconDel = $this->IconButton('Delete item',$lnkDel,array('icon'=>'action_delete.gif'));
+												
+						$strIcon = $iconEdit . ' ' . $iconDel;
+						$cid = $this->formCheckbox('cid[]',$val['id'],array('class'=>'check'));
+				
+					?>
+
+               <tr class="<?php  if($i%2==0) echo chan ; else echo le;?> hori">						
+                         <td align="center"><?php  echo $cid;?></td>
+                         <td align="left"><a href="<?php echo JURI; ?>/manager/user/edit/id/<?php echo $id;?>"><?php  echo $user_name;?></a> </td>
+                         <td align="left"><?php  echo $first_name;?> </td>
+                       	 <td align="left"><?php  echo $last_name;?> </td>
+                   
+                        
+                         <td align="center"><?php   echo $status; ?> </td>    
+                       
+                         
+                            
+                         <td align="center"><?php   echo $strIcon;?></td>   
+                         <td align="center"><?php   echo $id;?></td>   
+               </tr>         
+                    <?php 
+                        $i++;
+					}
+			    }
+                	?>            
+                                    <!-- BEGIN: PAGINATION (FOOT) -->
+                                    <tfoot>
+                                        <tr>
+                                            <td colspan="10">
+                                                <div class="container">
+                                                    <div class="pagination">
+                                                           <?php echo  $this->paginationControl($this->paginator, 'Sliding', 'paging.phtml'); ?>	      
+                                                    </div>
+                                                </div>
+                                            </td>
+                                        </tr>					
+                                    </tfoot>				<!-- END: PAGINATION (FOOT) -->
+                                </table>
+                                <!-- Area 4: In du lieu lay tu database - End -->
+
+                                <!-- END: ELEMENT BOX -->	
+                              <div class="clr"></div>
+                            </div>
+                            <div class="b">
+                                <div class="b">
+                                    <div class="b"></div>
+                                </div>
+                            </div>
+                        </div>
+                        <!-- END: 	CONTENT -->
+
+</form>

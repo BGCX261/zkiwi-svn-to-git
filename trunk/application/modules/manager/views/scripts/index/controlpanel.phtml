@@ -1,0 +1,84 @@
+<!-- PHáº¦N TIÃŠU Ä�á»€ QUáº¢N TRá»Š -->
+	<!-- BEGIN: CONTENT -->
+	 <div id="element-box">
+	   <div class="t">
+	     <div class="t">
+	        <div class="t"></div>
+	     </div>
+	    </div>
+		<div class="m">
+            <h2 class="title_pannel">
+               <img  align="left" alt="" src="<?php echo JURI.'/public/templates/admin/login/images/header/icon-48-config.png'; ?>">ZKIWI MANAGER 
+            </h2>
+          <!--   <h2 class="title_pannel_right">
+                 <a href="#">Log out</a> -->
+            </h2>
+       <!-- END NOI DUNG -->
+	     <div class="clr"></div>
+		</div>
+	    <div class="b">
+	          <div class="b">
+	               <div class="b"></div>
+	          </div>
+	      </div>
+	 </div>
+                 
+
+<br clear="all"/>
+<!-- END PHáº¦N TIÃŠU Ä�á»€ -->
+
+
+
+<!-- BEGIN: CONTENT -->
+ <div id="element-box">
+   <div class="t">
+     <div class="t">
+        <div class="t"></div>
+     </div>
+    </div>
+	<div class="m">
+	<!-- NOi DUNG -->
+	<?php 
+	  $ns = new Zend_Session_Namespace('login');       
+	  $error=$ns->error;
+	 
+     if ($error!='')
+         {
+           echo '<h3 class="error_h3">'.$error.'</h3>'	;
+         }
+  ?>
+   <div id="container_painl">
+       <div class="controlpanel <?php echo $this->css_public; ?>">
+		         <a href="<?php echo JURI_BACK.'group-user'; ?>">
+		         <img alt="" src="<?php echo JURI;?>/public/templates/admin/login/images/header/1333446423_group.png"><span>Group User</span></a>
+       </div> 
+       <div class="controlpanel <?php echo $this->css_public; ?>">
+		         <a href="<?php echo JURI_BACK.'tags'; ?>">
+		         <img alt="" src="<?php echo JURI;?>/public/templates/admin/login/images/header/Icon_09_2.png"><span>Tags Manager</span></a>
+       </div>  
+        <div class="controlpanel <?php echo $this->css_public; ?>">
+		         <a href="<?php echo JURI_BACK.'question'; ?>">
+		         <img alt="" src="<?php echo JURI;?>/public/templates/admin/login/images/header/1336445899_add-notes.png"><span>Question Manager</span></a>
+       </div>  
+        <div class="controlpanel <?php echo $this->css_public; ?>">
+		         <a href="<?php echo JURI_BACK.'answer'; ?>">
+		         <img alt="" src="<?php echo JURI;?>/public/templates/admin/login/images/header/todo_list_add.png"><span>Answer Manager</span></a>
+       </div>  
+        <div class="controlpanel <?php echo $this->css_public; ?>">
+		         <a href="<?php echo JURI_BACK.'answer'; ?>">
+		         <img alt="" src="<?php echo JURI;?>/public/templates/admin/login/images/header/1333446514_logout.png"><span>Logout</span></a>
+       </div>  
+ 
+   </div>
+<!-- END NOI DUNG -->
+	     <div class="clr"></div>
+	</div>
+    <div class="b">
+          <div class="b">
+               <div class="b"></div>
+          </div>
+      </div>
+ </div>
+                 
+
+<br clear="all"/>
